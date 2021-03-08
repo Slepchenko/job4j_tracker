@@ -4,27 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 public class EasyStream {
 
     private List<Integer> source;
-    private Function<Integer, Integer> fun;
-    private Predicate<Integer> pred;
-    private static EasyStream es;
+
+    private EasyStream(List<Integer> source) {
+        this.source = source;
+    }
 
     public static EasyStream of(List<Integer> source) {
         if (source == null) {
             throw new UnsupportedOperationException();
         }
-        es = new EasyStream();
-        es.source = source;
-        return es;
-
+        return new EasyStream(source);
     }
 
     public EasyStream map(Function<Integer, Integer> fun) {
-        if (es == null) {
+        if (source == null) {
             throw new UnsupportedOperationException();
         }
         List<Integer> res = new ArrayList<>();
@@ -32,12 +29,11 @@ public class EasyStream {
             int a = fun.apply(i);
             res.add(a);
         }
-        es.source = res;
-        return es;
+        return new EasyStream(res);
     }
 
     public EasyStream filter(Predicate<Integer> fun) {
-        if (es == null) {
+        if (source == null) {
             throw new UnsupportedOperationException();
         }
         List<Integer> res = new ArrayList<>();
@@ -46,11 +42,10 @@ public class EasyStream {
                 res.add(i);
             }
         }
-        es.source = res;
-        return es;
+        return new EasyStream(res);
      }
 
     public List<Integer> collect() {
-        return es.source;
+        return source;
     }
 }
