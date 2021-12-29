@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-
-// Класс Analyze получает статистику по аттестатам.
 public class Analyze {
 
     public static double averageScore(Stream<Pupil> stream) {
@@ -36,13 +34,13 @@ public class Analyze {
                                 Collectors.averagingDouble(Subject::getScore)))
                 .entrySet()
                 .stream()
-                .map(d->new Tuple(d.getKey(), d.getValue()))
+                .map(d -> new Tuple(d.getKey(), d.getValue()))
                 .collect(Collectors.toList());
     }
 
     public static Tuple bestStudent(Stream<Pupil> stream) {
         return stream
-                .map(pupil -> new Tuple(pupil.getName(),pupil.getSubjects()
+                .map(pupil -> new Tuple(pupil.getName(), pupil.getSubjects()
                         .stream()
                         .mapToInt(Subject::getScore).sum()))
                 .max(Comparator.comparingInt(x -> (int) x.getScore()))
@@ -57,7 +55,8 @@ public class Analyze {
                 .entrySet()
                 .stream()
                 .map(c -> new Tuple(c.getKey(), c.getValue()))
-                .max(Comparator.comparingInt(d -> (int) d.getScore())).orElse(new Tuple("Noname", 0));
+                .max(Comparator.comparingInt(d -> (int) d.getScore()))
+                .orElse(new Tuple("Noname", 0));
     }
 
 }
