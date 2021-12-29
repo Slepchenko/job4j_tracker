@@ -5,38 +5,72 @@ import ru.job4j.collection.JobDescByName;
 import ru.job4j.collection.JobDescByPriority;
 
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import java.util.function.*;
+import java.util.stream.*;
 
 import static java.util.List.of;
 
 public class Tester {
-    public static int get(int[] data, int el) {
-        Optional<Integer> optional = indexOf(data, el);
-        if (optional.isEmpty()) {
-            return -1;
-        }
-        return optional.get();
+
+    private String passport;
+
+    private List<Child> children = new LinkedList<>();
+
+    public Tester(String passport, List<Child> children) {
+        this.passport = passport;
+        this.children = children;
     }
 
-    private static Optional<Integer> indexOf(int[] data, int el) {
-        Optional<Integer> optional = Optional.empty();
-        for (int i = 0; i < data.length; i++) {
-            if (data[i] == el) {
-                optional = Optional.of(i);
-                break;
-            }
-        }
-        return optional;
+    public String getPassport() {
+        return passport;
+    }
+
+    public List<Child> getChildren() {
+        return children;
+    }
+
+
+public static class Child {
+
+    private String name;
+
+    private int age;
+
+    public Child(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+
+    public static List<Child> defineChildren(List<Tester> workers, String passport) {
+        return findByPassport(workers, passport).stream().flatMap(z -> z.getChildren().stream()).filter(z -> z.getAge() >= 15).collect(Collectors.toList());
+    }
+
+    public static Optional<Tester> findByPassport(List<Tester> workers, String passport) {
+        return workers.stream()
+                .filter(w -> w.getPassport().equals(passport))
+                .findFirst();
     }
 
     public static void main(String[] args) {
-        int[] array = new int[]{1, 2, 3, 4, 5};
-        System.out.println(get(array, 1));
-
-
+        Child c1 = new Child("c1", 15);
+        Child c2 = new Child("c2", 18);
+        Child c3 = new Child("c1", 20);
+        Child c4 = new Child("c2", 15);
+        Tester worker1 = new Tester("123", List.of(c1, c2, c3));
+        Tester worker2 = new Tester("456", List.of(c4));
+        List<Child> l =defineChildren(List.of(worker1, worker2), "456");
+        for (Child ch : l)
+        System.out.println(ch.getName() + " " + ch.getAge());
     }
 }
-
+}
 
