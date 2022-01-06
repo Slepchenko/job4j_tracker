@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.job4j</groupId>
-    <artifactId>tracker</artifactId>
+    <artifactId>memTracker</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
@@ -29,28 +29,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>5.2.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>3.24.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.9.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.12</version>
         </dependency>
     </dependencies>
 
@@ -90,10 +71,10 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <finalName>tracker</finalName>
+                            <finalName>memTracker</finalName>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>ru.job4j.tracker.StartUI</mainClass>
+                                    <mainClass>ru.job4j.memTracker.StartUI</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

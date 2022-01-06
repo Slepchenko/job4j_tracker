@@ -13,15 +13,19 @@ public class EditAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Store tracker) {
         out.println(System.lineSeparator() + "=== Edit item ====");
-        int id = Integer.valueOf(input.askStr("Enter id: "));
+        int id = Integer.parseInt(input.askStr("Enter id: "));
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
-        if (tracker.replace(id, item)) {
-            out.println("Item " + name + " item edited successfully");
-        } else {
-            out.println("Item is not edited");
+        try {
+            if (tracker.replace(id, item)) {
+                out.println("Item " + name + " item edited successfully");
+            } else {
+                out.println("Item is not edited");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return true;
     }

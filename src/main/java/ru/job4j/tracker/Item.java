@@ -1,11 +1,14 @@
 package ru.job4j.tracker;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Item {
+    private static final DateTimeFormatter FORMATTER =
+            DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     private int id;
     private String name;
-    private final LocalDateTime created = LocalDateTime.now();
+    private LocalDateTime created = LocalDateTime.now();
 
     public Item(String name) {
         this.name = name;
@@ -21,7 +24,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" + "id=" + id + ", name='" + name + '\'' + ", created=" + created + '}';
+        return String.format("id: %s, name: %s, created: %s", id, name, FORMATTER.format(created));
     }
 
     public String getName() {
@@ -34,5 +37,9 @@ public class Item {
 
     public LocalDateTime getCreated() {
         return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
     }
 }
