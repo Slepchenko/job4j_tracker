@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.job4j</groupId>
-    <artifactId>memTracker</artifactId>
+    <artifactId>tracker</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
@@ -13,17 +13,13 @@
         <maven.compiler.source>14</maven.compiler.source>
         <maven.compiler.target>14</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <db.url>jdbc:h2:./testdb;MODE=PostgreSQL;CASE_INSENSITI﻿VE_IDENTIFIERS=TRUE;</db.url>
-        <db.username></db.username>
-        <db.password></db.password>
-        <db.driver>org.h2.Driver</db.driver>
     </properties>
 
     <profiles>
         <profile>
             <id>test</id>
             <properties>
-                <db.url>jdbc:h2:${basedir}/testdb;MODE=PostgreSQL;CASE_INSENSITIVE_IDENTIFIERS=TRUE;</db.url>
+                <db.url>jdbc:h2:./testdb;MODE=PostgreSQL;CASE_INSENSITI﻿VE_IDENTIFIERS=TRUE;</db.url>
                 <db.username></db.username>
                 <db.password></db.password>
                 <db.driver>org.h2.Driver</db.driver>
