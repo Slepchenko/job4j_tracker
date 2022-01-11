@@ -127,8 +127,9 @@ public class SqlTracker implements Store, AutoCloseable {
                 "select * from items where id = ?")) {
             statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
-                resultSet.next();
-                item = takeItem(resultSet);
+                if (resultSet.next()) {
+                    item = takeItem(resultSet);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
