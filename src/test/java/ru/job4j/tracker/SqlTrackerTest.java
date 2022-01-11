@@ -67,23 +67,13 @@ public class SqlTrackerTest {
     }
 
     @Test
-    public void whenReplaceItemThenItemIsReplased() {
+    public void whenReplaceItemThenItemIsReplaced() {
         SqlTracker tracker = new SqlTracker(connection);
         Item item = new Item("Item");
         tracker.add(item);
         Item testItem = new Item("Test Item");
-        testItem.setId(item.getId());
         tracker.replace(item.getId(), testItem);
-        assertThat(tracker.findById(item.getId()), is(testItem));
-    }
-
-    @Test
-    public void whenIdIsNotExistReplaceThenException() throws Exception {
-        SqlTracker tracker = new SqlTracker(connection);
-        Item item = new Item("item");
-        Item testItem = new Item("Test Item");
-        tracker.add(item);
-        tracker.replace(1000, testItem);
+        assertThat(tracker.findById(item.getId()).getName(), is(testItem.getName()));
     }
 
     @Test
@@ -101,14 +91,6 @@ public class SqlTrackerTest {
         tracker.add(item);
         tracker.delete(item.getId());
         Assert.assertNull(tracker.findById(item.getId()));
-    }
-
-    @Test
-    public void whenDeleteItemIdIsNotExistThenException() throws Exception {
-        SqlTracker tracker = new SqlTracker(connection);
-        Item item = new Item("item");
-        tracker.add(item);
-        tracker.delete(10000);
     }
 
     @Test

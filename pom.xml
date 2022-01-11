@@ -10,8 +10,8 @@
     <packaging>jar</packaging>
 
     <properties>
-        <maven.compiler.source>14</maven.compiler.source>
-        <maven.compiler.target>14</maven.compiler.target>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -19,7 +19,7 @@
         <profile>
             <id>test</id>
             <properties>
-                <db.url>jdbc:h2:./testdb;MODE=PostgreSQL;CASE_INSENSITI﻿VE_IDENTIFIERS=TRUE;</db.url>
+                <db.url>jdbc:h2:./testdb;MODE=PostgreSQL;CASE_INSENSITIVE_IDENTIFIERS=TRUE;</db.url>
                 <db.username></db.username>
                 <db.password></db.password>
                 <db.driver>org.h2.Driver</db.driver>
