@@ -30,11 +30,10 @@ public class StartUI {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
-        try (SqlTracker tracker = new SqlTracker()) {
-            tracker.init();
+        MemTracker tracker = new MemTracker();
             List<UserAction> actions = List.of(
                     new CreateAction(output),
                     new EditAction(output),
@@ -42,11 +41,10 @@ public class StartUI {
                     new FindAllAction(output),
                     new FindItemByIDAction(output),
                     new FindItemByNameAction(output),
+                    new CreateBigListItemAction(output),
+                    new ClearAllList(output),
                     new Exit()
             );
             new StartUI(output).init(input, tracker, actions);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
