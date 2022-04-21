@@ -15,7 +15,7 @@ public class CreateBigListItemAction implements UserAction {
     @Override
     public boolean execute(Input input, Store tracker) throws Exception {
         out.println(System.lineSeparator() + "=== Create Big List of Item ====");
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 300000; i++) {
             Item item = new Item("Item_" + i);
             try {
                 tracker.add(item);
