@@ -1,4 +1,4 @@
-package ru.job4j.lambda;
+package ru.job4j.map.lambda;
 
 import java.util.ArrayList;
 import java.util.List;

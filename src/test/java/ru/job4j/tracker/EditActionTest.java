@@ -8,11 +8,11 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class EditActionTest {
-    
+
     @Test
-    public static void edit() {
+    public void edit() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         tracker.add(new Item("Edite item"));
         String editName = "New item name";
         EditAction rep = new EditAction(out);
@@ -21,7 +21,9 @@ public class EditActionTest {
         when(input.askStr(any(String.class))).thenReturn(editName);
         rep.execute(input, tracker);
         String ln = System.lineSeparator();
-        assertThat(out.toString()).isEqualTo("=== Edit item ===" + ln + "Edit item is done." + ln);
+        assertThat(out.toString())
+                .isEqualTo(ln + "==== Edit item ====" + ln + "Item New item name item edited successfully" + ln);
         assertThat(tracker.findAll().get(0).getName()).isEqualTo(editName);
+
     }
 }
