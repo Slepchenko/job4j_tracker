@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 public class ClearAllList implements UserAction {
+
     private final Output out;
 
     public ClearAllList(Output out) {

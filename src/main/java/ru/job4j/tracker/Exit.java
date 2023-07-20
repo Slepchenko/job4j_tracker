@@ -11,4 +11,5 @@ public class Exit implements UserAction {
     public boolean execute(Input input, Store tracker) {
         return false;
     }
+
 }

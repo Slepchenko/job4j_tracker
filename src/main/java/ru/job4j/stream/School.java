@@ -12,8 +12,8 @@ public class School {
     }
 
     public Map<String, Student> mapCollect(List<Student> students) {
-        return students.stream().collect(Collectors.toMap(
-                (a) -> a.getSurname(), (a) -> a, (a, b) -> a)
-        );
+        return students
+                .stream()
+                .collect(Collectors.toMap(Student::getSurname, (a) -> a, (a, b) -> a));
     }
 }

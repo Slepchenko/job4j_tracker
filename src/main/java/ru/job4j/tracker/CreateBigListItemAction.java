@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 public class CreateBigListItemAction implements UserAction {
+
     private final Output out;
 
     public CreateBigListItemAction(Output out) {

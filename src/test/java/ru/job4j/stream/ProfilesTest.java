@@ -11,7 +11,8 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class ProfilesTest {
-   private List<Profile> list = new ArrayList<>();
+
+    private List<Profile> list = new ArrayList<>();
 
     @Before
     public void setUp() {
