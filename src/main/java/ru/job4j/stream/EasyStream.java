@@ -8,10 +8,10 @@ import java.util.stream.Stream;
 
 public class EasyStream {
 
-    private static EasyStream es;
     private List<Integer> source;
     private Function<Integer, Integer> fun;
     private Predicate<Integer> pred;
+    private static EasyStream es;
 
     public static EasyStream of(List<Integer> source) {
         if (source == null) {

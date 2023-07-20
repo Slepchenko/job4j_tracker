@@ -2,7 +2,6 @@ package ru.job4j.lambda;
 
 import org.hamcrest.core.Is;
 import org.junit.Test;
-import ru.job4j.map.lambda.Lambda;
 
 import java.util.Arrays;
 import java.util.List;
