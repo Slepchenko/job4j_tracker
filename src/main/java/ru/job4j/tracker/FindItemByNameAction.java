@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class FindItemByNameAction implements UserAction {
+
     private final Output out;
 
     public FindItemByNameAction(Output out) {
