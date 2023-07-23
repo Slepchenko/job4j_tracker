@@ -25,6 +25,5 @@ public class EditActionTest {
                 .isEqualTo(ln + "==== Edit item ===="
                         + ln + "Item New item name item edited successfully" + ln);
         assertThat(tracker.findAll().get(0).getName()).isEqualTo(editName);
-
     }
 }
