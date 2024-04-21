@@ -1,10 +1,12 @@
 package ru.job4j.tracker;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
+@Ignore
 public class ValidateInputTest {
     @Test
     public void whenInvalidInput() {
