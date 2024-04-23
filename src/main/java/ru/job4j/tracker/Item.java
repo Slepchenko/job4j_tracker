@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import lombok.Data;
+
 import javax.persistence.*;
 
 import java.time.LocalDateTime;
@@ -20,7 +21,9 @@ public class Item {
     private String name;
     private LocalDateTime created = LocalDateTime.now();
 
-    public Item() {}
+    public Item() {
+    }
+
     public Item(String name) {
         this.name = name;
     }
