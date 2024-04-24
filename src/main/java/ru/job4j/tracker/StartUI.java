@@ -35,6 +35,7 @@ public class StartUI {
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
         SqlTracker tracker = new SqlTracker();
+        tracker.init();
             List<UserAction> actions = List.of(
                     new CreateAction(output),
                     new EditAction(output),
