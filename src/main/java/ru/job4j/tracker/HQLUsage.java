@@ -7,8 +7,6 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
 
-import java.util.List;
-
 public class HQLUsage {
     public static void main(String[] args) {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
@@ -42,6 +40,7 @@ public class HQLUsage {
             session.getTransaction().rollback();
         }
     }
+
     public static void delete(Session session, int id) {
         try {
             session.beginTransaction();
