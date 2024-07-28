@@ -34,8 +34,7 @@ public class StartUI {
     public static void main(String[] args) throws Exception {
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
-        SqlTracker tracker = new SqlTracker();
-        tracker.init();
+        HbmTracker tracker = new HbmTracker();
             List<UserAction> actions = List.of(
                     new CreateAction(output),
                     new EditAction(output),

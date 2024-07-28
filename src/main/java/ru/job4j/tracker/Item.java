@@ -1,6 +1,8 @@
 package ru.job4j.tracker;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -10,6 +12,8 @@ import java.time.format.DateTimeFormatter;
 @Entity
 @Table(name = "items")
 @Data
+@AllArgsConstructor
+@ToString
 public class Item {
 
     private static final DateTimeFormatter FORMATTER =
