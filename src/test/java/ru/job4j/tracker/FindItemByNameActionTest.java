@@ -30,7 +30,11 @@ class FindItemByNameActionTest {
                         ln + "=== Find items by name ===="
                                 + ln + "ID: " + expected.get(0).getId()
                                 + ln + "Name: " + expected.get(0).getName()
+<<<<<<< HEAD
                                 + ln + "Date of creation: " + expected.get(0).getCreated() + ln
+=======
+                        + ln + "Date of creation: " + expected.get(0).getCreated() + ln
+>>>>>>> origin/master
                 );
         assertThat(expected.get(0).getName()).isEqualTo(editName);
     }

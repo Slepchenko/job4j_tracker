@@ -22,8 +22,8 @@ public class EditActionTest {
         rep.execute(input, tracker);
         String ln = System.lineSeparator();
         assertThat(out.toString())
-                .isEqualTo(ln + "==== Edit item ===="
-                        + ln + "Item New item name item edited successfully" + ln);
+                .isEqualTo(ln + "==== Edit item ====" + ln + "Item New item name item edited successfully" + ln);
         assertThat(tracker.findAll().get(0).getName()).isEqualTo(editName);
+
     }
 }
